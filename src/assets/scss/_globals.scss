@@ -1,0 +1,40 @@
+// Custom bootstrap overides
+/*
+Global Color Theme Config
+*/
+$color-theme-dark: #003932;
+$color-theme-light: #008032;
+$color-font-primary: #ffffff;
+$color-background: whitesmoke;
+/*
+Global Font Config
+Standard 16px
+Large  48px
+Medium 32px
+Small 12px
+Extra Small 8px
+*/
+$size-font-standard: 1rem;
+
+$size-font-large: $size-font-standard * 3;
+$size-font-medium: $size-font-standard * 2;
+$size-font-small: $size-font-standard * 1;
+$size-font-x-small: $size-font-standard  * 0.5;
+$font-family-default: 'Open Sans', sans-serif;;
+$font-family-brand: 'IBM Plex Serif', serif;
+/*
+Spacing Config
+*/
+$spacing-standard: calc(1rem * 1.25);
+$spacing-small: calc(1rem / 2);
+
+// Import bootstrap
+@import 'node_modules/bootstrap/scss/bootstrap';
+@import 'node_modules/bootstrap-vue/src/index.scss';
+html, body {
+    height: 100%;
+}
+
+h1 {
+    font-size: $size-font-medium * 0.75; /* 24px */
+}
