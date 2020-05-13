@@ -4,8 +4,8 @@ Global Color Theme Config
 */
 $color-theme-dark: #003932;
 $color-theme-light: #008032;
-$color-font-primary: #ffffff;
-$color-background: whitesmoke;
+$color-font-primary: rgb(247, 247, 247);
+$color-background: rgb(253, 253, 253);
 /*
 Global Font Config
 Standard 16px
@@ -25,6 +25,8 @@ $font-family-brand: 'IBM Plex Serif', serif;
 /*
 Spacing Config
 */
+$spacing-large: 4rem;
+$spacing-medium: calc(1rem * 2);
 $spacing-standard: calc(1rem * 1.25);
 $spacing-small: calc(1rem / 2);
 

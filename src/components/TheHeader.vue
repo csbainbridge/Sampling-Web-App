@@ -7,7 +7,6 @@
           <p class="header__right-wrapper-username">Curtis Bainbridge</p>
           <b-button size="sm" variant="outline-light">Logout</b-button>
         </div>
-        <h1 class="header__right-wrapper-company">CRODA</h1>
       </div>
         <!-- <router-link to="/">Home</router-link>
         <router-link to="/about">About</router-link> -->
@@ -36,10 +35,11 @@ export default {
   background-color: $color-theme-dark;
   height: 3rem;
   white-space: nowrap;
-  box-shadow: 1px 1px 7.5px 1px rgba(0, 0, 0, 0.30);
+  // box-shadow: 10px 1px 7.5px 1px rgba(0, 0, 0, 0.30);
+  overflow-x: hidden;
 
   &__app-branding {
-     margin-left: calc(1rem * 1.25); /* 20px */
+    //  margin-left: calc(1rem * 1.25); /* 20px */
      margin-bottom: 0;
      letter-spacing: 0.1rem;
   }
@@ -62,8 +62,8 @@ export default {
       justify-content: center;
       align-items: center;
       padding: 0 $spacing-standard 0 $spacing-standard;
-      border-right: .75px solid #fff;
-      border-left: .75px solid #fff;
+      // border-right: .75px solid #fff;
+      // border-left: .75px solid #fff;
     }
 
     @include media-breakpoint-down(md) {
@@ -76,7 +76,7 @@ export default {
     }
 
     &-company {
-      margin: 0 calc(1rem * 1.25) 0 calc(1rem * 1.25);
+      margin: 0 calc(1rem * 1.25) .5rem calc(1rem * 1.25);
       font-family: $font-family-brand;
       border-bottom: 1px solid #fff;
       letter-spacing: 0.1rem;
@@ -87,44 +87,4 @@ export default {
     }
   }
 }
-// .header__app-branding {
-//   margin-left: calc(1rem * 1.25); /* 20px */
-//   margin-bottom: 0;
-//   letter-spacing: 0.2rem;
-// }
-
-// .header__right-wrapper {
-//   height: 100%;
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-
-//     * {
-//       margin: 0;
-//     }
-
-//     .header__login-wrapper {
-//       display: flex;
-//       justify-content: center;
-//       align-items: center;
-//       padding: 0 $spacing-standard 0 $spacing-standard;
-//       border-right: .75px solid #fff;
-//       border-left: .75px solid #fff;
-//     }
-
-//     .header__icon {
-//       margin-right: $spacing-small;
-//     }
-
-//     .header__company {
-//       margin: 0 calc(1rem * 1.25) 0 calc(1rem * 1.25);
-//       font-family: $font-family-brand;
-//       border-bottom: 1px solid #fff;
-//       letter-spacing: 0.1rem;
-//       line-height: 2rem;
-//     }
-//     .header__username {
-//       margin-right: $spacing-small;
-//     }
-// }
 </style>
