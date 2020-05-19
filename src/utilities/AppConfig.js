@@ -1,3 +1,3 @@
 export default {
-    name: 'Sampling Live Reporting'
+    name: 'Sampling Replenishment'
 }

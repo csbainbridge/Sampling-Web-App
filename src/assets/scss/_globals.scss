@@ -30,6 +30,11 @@ $spacing-medium: calc(1rem * 2);
 $spacing-standard: calc(1rem * 1.25);
 $spacing-small: calc(1rem / 2);
 
+/*
+Letter Spacing Config
+*/
+$letter-spacing-medium: .2rem;
+
 // Import bootstrap
 @import 'node_modules/bootstrap/scss/bootstrap';
 @import 'node_modules/bootstrap-vue/src/index.scss';
