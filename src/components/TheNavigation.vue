@@ -6,7 +6,7 @@
     </section>
     <ul class="navigation__menu">
       <li class="navigation__menu-item">
-        <router-link to="/outstanding-orders">
+        <router-link to="/report/outstanding-orders">
           <div class="navigation__menu-items-wrapper">
             <b-icon-file-ruled font-scale="2" variant="light"></b-icon-file-ruled>
             <span class="navigation__menu-item-text">Outstanding Orders</span>
@@ -15,7 +15,7 @@
       </li>
 
       <li class="navigation__menu-item">
-        <router-link to="/replenish-sample-stock">
+        <router-link to="/report/replenish-sample-stock">
           <div class="navigation__menu-items-wrapper">
             <b-icon-file-ruled variant="light" font-scale="2"></b-icon-file-ruled>
             <span class="navigation__menu-item-text">Replenish Sampling Stock</span>
@@ -90,7 +90,7 @@ export default {
     display: flex;
     margin-top: 2rem;
     padding-left: 2rem;
-    justify-content: center;
+    padding-right: 2rem;
   }
   &__header {
     display: flex;
