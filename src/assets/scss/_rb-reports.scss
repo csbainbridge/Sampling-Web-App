@@ -1,0 +1,8 @@
+.report {
+    color: $color-font-primary;
+    &__title {
+        text-transform: capitalize;
+        letter-spacing: .2rem;
+        margin-top: 1rem;
+    }
+}

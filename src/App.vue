@@ -1,45 +1,50 @@
 <template>
   <div id="app">
-    <b-container fluid class="m-0 p-0 h-100 container--fit-height">
+
+    <b-container fluid class="m-0 p-0 fit-height">
+      <!-- Layout: Header Row -->
       <b-row tag="header" class="d-flex flex-nowrap">
-        <b-col class="d-none d-md-flex justify-content-center align-items-center col-md-3 cda-left-column">
-          <!-- TODO: This bit is messy - too tired to work it out -->
+        <!-- Layout: Header Branding Column Col Width 2 -->
+        <b-col class="d-none d-md-flex justify-content-center align-items-center col-md-2 cda-left-column">
           <a href="#" class="brand h1">CRODA</a>
         </b-col>
+        <!-- Layout: Header Content Column Col Width 9 -->
         <b-col class="d-flex align-items-center justify-content-md-between cda-h-text">
-          <!-- COMPLETE Would like this left aligned to the edge of the content pane - couldn't be bothered restructuring, though -->
           <b-icon @click="menuHidden = !menuHidden" :icon="menuHidden ? 'list' : 'x'" class="h1 m-3 d-md-none" />
-          <h1 class="pl-3 pl-md-0 croda-heading-title">{{ AppConfig.name }}</h1>
+          <h1 class="pl-3 pl-md-0 croda-heading-title">{{ RBAppConfig.name }}</h1>
           <rb-user class="d-none d-md-block"></rb-user>
         </b-col>
       </b-row>
 
+      <!-- Layout: Content Row -->
       <b-row class="h-100 d-flex flex-nowrap">
-        <b-col id="main-navbar" class="d-md-block m-0 p-0 col-md-3 cda-left-column main-navbar--shadow" :class="{'d-none': menuHidden, 'd-block': !menuHidden}">
-          <rb-samp-nav></rb-samp-nav>
+        <!-- Layout: Content Navigation Column Col Width 2 -->
+        <b-col id="main-navbar" class="d-md-block m-0 p-0 col-md-2 cda-left-column main-navbar--shadow" :class="{'d-none': menuHidden, 'd-block': !menuHidden}">
+          <rb-navigation></rb-navigation>
         </b-col>
-        <b-col cols="9" class="d-md-block" :class="{'d-none': !menuHidden, 'd-block': menuHidden}">
+        <!-- Layout: Content Main Content Column Col Width 9-->
+        <b-col cols="md-9" class="d-md-block" :class="{'d-none': !menuHidden, 'd-block': menuHidden}">
           <router-view />
         </b-col>
       </b-row>
+
     </b-container>
   </div>
 </template>
 
 <script>
-import RBSampNav from '@/components/TheNavigation.vue'
-import RBUser from '@/components/RB-User.vue'
-import AppConfig from '@/utilities/AppConfig'
+import RBNavigation from '@/components/RBNavigation.vue'
+import RBUserLogin from '@/components/RBUserLogin.vue'
+import RBAppConfig from '@/utilities/RBAppConfig'
 
 export default {
   components: {
-    // TheHeader,
-    'rb-samp-nav': RBSampNav,
-    'rb-user': RBUser
+    'rb-navigation': RBNavigation,
+    'rb-user': RBUserLogin
   },
   data () {
     return {
-      AppConfig,
+      RBAppConfig,
       username: 'CRODA/curtis.bainbridge',
       menuHidden: true
     }
@@ -51,6 +56,7 @@ export default {
 /* Global Imports */
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Serif&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap');
+@import "~@/assets/scss/_rb-reports.scss";
 
 html, body {
   height: 100%;
@@ -62,8 +68,9 @@ html, body {
     color: $color-font-primary;
     overflow-x: hidden;
     height: 100%;
-    background-color: $color-background;
-  }
+    background-color: $color-background-dark;
+    background-image: linear-gradient(to bottom right, #373737, #191919);
+}
 
 #main-navbar {
   min-height: 35rem;
@@ -113,8 +120,8 @@ header {
      font-size: 1.25rem;
   }
 }
-.container--fit-height {
-  height: calc(100% - 4rem) !important/* height minus height of header */
+.fit-height {
+  height: calc(100% - 5rem) !important/* height minus height of header */
 }
 
 </style>

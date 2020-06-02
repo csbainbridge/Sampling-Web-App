@@ -1,8 +1,10 @@
 module.exports = {
     css: {
         loaderOptions: {
-            sass: {
-                prependData: `@import "~@/assets/scss/_globals.scss";`
+            scss: {
+                prependData: `
+                    @import "~@/assets/scss/_globals.scss";
+                    @import "~@/assets/scss/_rb-planning-systems.scss";`
             }
         }
     }
