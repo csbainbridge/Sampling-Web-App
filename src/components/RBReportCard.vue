@@ -40,9 +40,8 @@ export default {
         font-family: 'IBM Plex Sans', sans-serif;;
         display: flex;
         align-items: center;
-        height: 8rem;
-        width: 21rem;
-        min-width: 15rem;
+        height: 6rem;
+        width: 100%;
         margin-top: 1rem;
         background-color: $dark-background-card;
         border-left: 1rem solid $card-border-color; /* or this color         #3F8957;? */
@@ -51,6 +50,8 @@ export default {
         border-top-right-radius: 0.25rem;
         border-bottom-right-radius: 0.25rem;
         box-shadow: 2px 2px 8px 1px rgba(0, 0, 0, .2);
+
+        /* 05.06.2020 TODO: Add media query always 100% up until md size then max-width is  216px */
 
         &__icon {
             margin-left: 1rem;

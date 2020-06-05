@@ -126,20 +126,20 @@
             <b-col
               cols="12"
               sm="6"
-              md="4"
-              class="card">
+              md="4">
+              <rb-dash-card></rb-dash-card>
             </b-col>
             <b-col
               cols="12"
               sm="6"
-              md="4"
-              class="card">
+              md="4">
+              <rb-dash-card></rb-dash-card>
             </b-col>
             <b-col
               cols="12"
               sm="6"
-              md="4"
-              class="card">
+              md="4">
+              <rb-dash-card></rb-dash-card>
             </b-col>
           </b-row>
         </b-col>
@@ -154,12 +154,13 @@
 // import RBNavigation from '@/components/RBNavigation.vue'
 // import RBUserLogin from '@/components/RBUserLogin.vue'
 import RBAppConfig from '@/utilities/RBAppConfig'
-
+import RBDashCard from '@/components/RBReportCard'
+// 'rb-navigation': RBNavigation,
+//     'rb-user': RBUserLogin
 export default {
-  // components: {
-  //   'rb-navigation': RBNavigation,
-  //   'rb-user': RBUserLogin
-  // },
+  components: {
+    'rb-dash-card': RBDashCard
+  },
   data () {
     return {
       RBAppConfig,
@@ -190,6 +191,10 @@ html, body, #app {
 // .container-fluid > * *, .border {
 //   border: 1px solid #fff;
 // }
+
+#app {
+  background-image: linear-gradient(to bottom right, #373737, #191919);
+}
 
 .layout-header-height {
   height: 3rem;
