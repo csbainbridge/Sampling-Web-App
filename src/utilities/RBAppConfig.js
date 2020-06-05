@@ -1,3 +1,4 @@
 export default {
-    name: 'Sampling Stock Management'
+    name: 'Sampling Stock Management',
+    trademark: 'CRODA'
 }

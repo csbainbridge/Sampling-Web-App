@@ -1,47 +1,165 @@
 <template>
   <div id="app">
-
-    <b-container fluid class="m-0 p-0 fit-height">
-      <!-- Layout: Header Row -->
-      <b-row tag="header" class="d-flex flex-nowrap">
-        <!-- Layout: Header Branding Column Col Width 2 -->
-        <b-col class="d-none d-md-flex justify-content-center align-items-center col-md-2 cda-left-column">
-          <a href="#" class="brand h1">CRODA</a>
-        </b-col>
-        <!-- Layout: Header Content Column Col Width 9 -->
-        <b-col class="d-flex align-items-center justify-content-md-between cda-h-text">
-          <b-icon @click="menuHidden = !menuHidden" :icon="menuHidden ? 'list' : 'x'" class="h1 m-3 d-md-none" />
-          <h1 class="pl-3 pl-md-0 croda-heading-title">{{ RBAppConfig.name }}</h1>
-          <rb-user class="d-none d-md-block"></rb-user>
-        </b-col>
+    <!-- New Layout -->
+    <b-container fluid class="h-100">
+      <!-- Row Header -->
+      <b-row class="flex-nowrap">
+        <header class="d-flex flex-nowrap w-100 layout-header-height">
+          <!-- Column Branding-->
+          <b-col
+            cols="1"
+            sm="1"
+            md="2"
+            lg="1"
+            class="d-flex justify-content-center align-items-center layout-column-left h-100">
+            <!-- <div class="logo">
+              <p class="d-none d-sm-block m-0">{{ RBAppConfig.trademark }}</p>
+            </div> -->
+            <div class="hamburger">
+              <i class="fas fa-bars d-sm-none"></i>
+            </div>
+          </b-col>
+          <b-col cols="1" class="d-none d-lg-flex align-items-center">
+             <div class="logo">
+              <p class="d-none d-sm-block m-0">{{ RBAppConfig.trademark }}</p>
+            </div>
+          </b-col>
+          <!-- Column Header -->
+          <!-- TODO: This requires standard cols class - might work wuthout but check when layout is complete -->
+          <b-col
+            cols
+            md="10"
+            lg="10"
+            class="d-flex justify-content-between align-items-center h-100">
+            <div class="header__title text-nowrap">
+              {{ RBAppConfig.name }}
+            </div>
+            <div class="header__functions d-flex">
+              <div class="header__user d-flex align-items-center">
+                <p class="d-none d-md-flex m-0">{{ username }}</p>
+                  <font-awesome-icon
+                    class="header__user-icon mx-1"
+                    :icon="['far', 'user-circle']"
+                    fixed-width>
+                </font-awesome-icon>
+              </div>
+            </div>
+          </b-col>
+        </header>
       </b-row>
 
-      <!-- Layout: Content Row -->
-      <b-row class="h-100 d-flex flex-nowrap">
-        <!-- Layout: Content Navigation Column Col Width 2 -->
-        <b-col id="main-navbar" class="d-md-block m-0 p-0 col-md-2 cda-left-column main-navbar--shadow" :class="{'d-none': menuHidden, 'd-block': !menuHidden}">
-          <rb-navigation></rb-navigation>
+      <!-- Row Content -->
+      <b-row class="layout-content-height flex-nowrap">
+        <!-- Column Navigation -->
+        <b-col
+          cols="1"
+          md="2"
+          lg="1"
+          class="d-sm-flex layout-column-left p-0">
+          <!-- Navigation Component -->
+          <nav class="navigation">
+            <ul class="navigation flex-no-wrap">
+              <li class="navigation__link d-flex">
+                <font-awesome-icon
+                    class="my-2 mx-3"
+                    :icon="['fas', 'book-open']"
+                    fixed-width>
+                </font-awesome-icon>
+                <p class="nav__item-text d-none d-md-block d-lg-none m-0">Outstanding Orders</p>
+              </li>
+              <li class="navigation__link d-flex">
+                <font-awesome-icon
+                    class="m-2 mx-3"
+                    :icon="['fas', 'vial']"
+                    fixed-width>
+                  </font-awesome-icon>
+                <p class="nav__item-text d-none d-md-block d-lg-none m-0">Replenish Sample Stock</p>
+              </li>
+              <li class="navigation__link d-flex">
+                 <font-awesome-icon
+                    class="m-2 mx-3"
+                    :icon="['fas', 'fill-drip']"
+                    fixed-width>
+                  </font-awesome-icon>
+                <p class="nav__item-text d-none d-md-block d-lg-none m-0">Replenish Bucket Stock</p>
+              </li>
+              <li class="navigation__link d-flex">
+                 <font-awesome-icon
+                    class="m-2 mx-3"
+                    :icon="['fas', 'box-open']"
+                    fixed-width>
+                  </font-awesome-icon>
+                <p class="nav__item-text d-none d-md-block d-lg-none m-0">Materials to Order</p>
+              </li>
+              <li class="navigation__link d-flex">
+                 <font-awesome-icon
+                    class="m-2 mx-3"
+                    :icon="['fas', 'industry']"
+                    fixed-width>
+                  </font-awesome-icon>
+                <p class="nav__item-text d-none d-md-block d-lg-none m-0">Production Availability</p>
+              </li>
+              <li class="navigation__link d-flex">
+                 <font-awesome-icon
+                    class="m-2 mx-3"
+                    :icon="['fas', 'pencil-alt']"
+                    fixed-width>
+                  </font-awesome-icon>
+                <p class="nav__item-text d-none d-md-block d-lg-none m-0">Material Administration</p>
+              </li>
+            </ul>
+          </nav>
+          <!-- End of Navigation Component-->
         </b-col>
-        <!-- Layout: Content Main Content Column Col Width 9-->
-        <b-col cols="md-9" class="d-md-block" :class="{'d-none': !menuHidden, 'd-block': menuHidden}">
-          <router-view />
+        <!-- End of Column Navigation -->
+        <!-- Column Content -->
+        <b-col
+          cols
+          md="10"
+          lg="11">
+          <!-- Content Title -->
+          <b-row>
+            <b-col>Content Title</b-col>
+          </b-row>
+          <!-- Content Cards -->
+          <b-row>
+            <b-col
+              cols="12"
+              sm="6"
+              md="4"
+              class="card">
+            </b-col>
+            <b-col
+              cols="12"
+              sm="6"
+              md="4"
+              class="card">
+            </b-col>
+            <b-col
+              cols="12"
+              sm="6"
+              md="4"
+              class="card">
+            </b-col>
+          </b-row>
         </b-col>
       </b-row>
-
+      <!-- End of Row Content -->
     </b-container>
   </div>
+
 </template>
 
 <script>
-import RBNavigation from '@/components/RBNavigation.vue'
-import RBUserLogin from '@/components/RBUserLogin.vue'
+// import RBNavigation from '@/components/RBNavigation.vue'
+// import RBUserLogin from '@/components/RBUserLogin.vue'
 import RBAppConfig from '@/utilities/RBAppConfig'
 
 export default {
-  components: {
-    'rb-navigation': RBNavigation,
-    'rb-user': RBUserLogin
-  },
+  // components: {
+  //   'rb-navigation': RBNavigation,
+  //   'rb-user': RBUserLogin
+  // },
   data () {
     return {
       RBAppConfig,
@@ -57,71 +175,172 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Serif&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap');
 @import "~@/assets/scss/_rb-reports.scss";
+/* New layout CSS */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-html, body {
+html, body, #app {
   height: 100%;
-}
-#app {
-    font-family: $font-family-default;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    color: $color-font-primary;
-    overflow-x: hidden;
-    height: 100%;
-    background-color: $color-background-dark;
-    background-image: linear-gradient(to bottom right, #373737, #191919);
+  overflow: auto;
 }
 
-#main-navbar {
-  min-height: 35rem;
+// .container-fluid > * *, .border {
+//   border: 1px solid #fff;
+// }
+
+.layout-header-height {
+  height: 3rem;
 }
 
-.navigation__menu {
-  padding-right: 1rem;
+.layout-column-left {
+  display: none;
+  min-width: 5rem;
 }
 
-@media (min-width: 768px) {
-  .cda-left-column {
-    min-width: 18rem;
-    max-width: 19rem;
-  }
-  .navigation__menu {
-    padding-right: 0;
-  }
- }
+.layout-content-height {
+  min-height: 564px;
+  height: calc(100% - 3rem);
+} /* ## HERE ##*/
+
+.logo > p {
+  text-align: center;
+  font-family: 'PT Serif', serif;
+}
+
+.hamburger {
+  font-size: 1.4rem;
+}
+
 header {
-  background-color: $color-theme-dark;
-  min-height: 2rem;
-  height: 5rem;
-  box-shadow: 10px 1px 7.5px 1px rgba(0, 0, 0, 0.30);
+  background-color: #003932;
+  color: #F7F7F7;
 }
 
-.brand {
-    color: white;
-    font-family: $font-family-brand;
-    letter-spacing: 0.1rem;
-    line-height: 2rem;
-    margin-left: $spacing-standard;
-    text-decoration: underline;
-    padding-bottom: 5px;
+.header__title {
+    text-transform: uppercase;
+    letter-spacing: 0.15rem;
+}
 
-    &:hover {
-      color: white;
+.header__user-icon {
+    font-size: 1.5rem;
+}
+
+.navigation {
+    z-index: 1;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    font-size: 1.6rem;
+
+    background-color: #1E1E1E;
+    color: #F7F7F7;
+}
+.navigation__link {
+    width: 100%;
+    list-style: none;
+    flex: 0 0 5rem;
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.navigation__link:hover {
+    z-index: 2;
+    border-left: 6px solid #3F8957;
+    background-color: #333333;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    width: calc(100% + 3px);
+    transition: all ease-in 0.1s;
+    cursor: pointer;
+};
+
+.card {
+    height: 5rem;
+}
+
+@media (min-width: 576px) {
+    .layout-left-column {
+        display: flex;
     }
 }
 
-.croda-heading-title {
-  letter-spacing: $letter-spacing-medium;
-  text-transform: uppercase;
+@media (min-width: 768px) {
+    .nav__item-text {
+        font-size: 0.6rem;
+    }
+
 }
 
-@media (max-width: 1072px) {
-  .croda-heading-title {
-     font-size: 1.25rem;
-  }
+@media (min-width: 992px) {
+    .nav__item {
+        padding-left: 0.5rem;
+    }
+    .logo {
+        font-size: 1.25rem;
+    }
 }
-.fit-height {
-  height: calc(100% - 5rem) !important/* height minus height of header */
+
+@media (min-width: 1112px) {
+    .nav__item-text {
+        font-size: 0.8rem;
+    }
 }
+
+@media (min-width: 1366px) {
+    // .navigation__link {
+    //     flex-direction: row;
+    //     justify-content: flex-start;
+    //     padding-left: 0.5rem;
+    // }
+
+    // .navigation__link > i {
+    //     margin-right: 1rem !important;
+    // }
+}
+
+@media (min-width: 1440px) {
+    .nav__item-text {
+        font-size: 0.8rem;
+    }
+}
+
+// header {
+//   background-color: $color-theme-dark;
+//   min-height: 2rem;
+//   height: 5rem;
+//   box-shadow: 10px 1px 7.5px 1px rgba(0, 0, 0, 0.30);
+// }
+
+// .brand {
+//     color: white;
+//     font-family: $font-family-brand;
+//     letter-spacing: 0.1rem;
+//     line-height: 2rem;
+//     margin-left: $spacing-standard;
+//     text-decoration: underline;
+//     padding-bottom: 5px;
+
+//     &:hover {
+//       color: white;
+//     }
+// }
+
+// .croda-heading-title {
+//   letter-spacing: $letter-spacing-medium;
+//   text-transform: uppercase;
+// }
+
+// @media (max-width: 1072px) {
+//   .croda-heading-title {
+//      font-size: 1.25rem;
+//   }
+// }
+// .fit-height {
+//   height: calc(100% - 5rem) !important/* height minus height of header */
+// }
 
 </style>

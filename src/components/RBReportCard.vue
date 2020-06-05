@@ -2,7 +2,7 @@
     <div class="dash-card">
         <font-awesome-icon class="dash-card__icon" :icon="icon"></font-awesome-icon>
         <div class="dash-card__content">
-            <p class="dash-card__content-number">{{ number }}</p>
+            <p class="dash-card__content-count">{{ count }}</p>
             <p class="dash-card__content-text">
                {{ name }}
             </p>
@@ -17,7 +17,7 @@ export default {
             required: true,
             type: String
         },
-        number: {
+        count: {
             required: true,
             type: Number
         },
@@ -65,7 +65,7 @@ export default {
                 margin: 0;
             }
 
-            &-number {
+            &-count {
                 font-size: 2.5rem;
             }
 

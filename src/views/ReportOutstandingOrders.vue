@@ -1,37 +1,41 @@
 <template>
     <b-container fluid class="report px-md-0 pl-3">
+        <!-- Report Title Row -->
         <b-row>
             <b-col cols="auto">
                 <h2 class="report__title">{{ title }}</h2>
             </b-col>
         </b-row>
+        <!-- End of Title Row -->
+
+        <!-- Report Cards Row -->
         <b-row>
+            <!-- Render Report Cards -->
             <b-col cols="auto" v-for="card in cards" :key="card.id">
                 <rb-report-card
                     :icon="card.icon"
-                    :number="card.number"
+                    :count="card.count"
                     :name="card.name"
                     :key="card.id">
                 </rb-report-card>
             </b-col>
         </b-row>
+        <!-- End of Report Cards Row -->
+
+        <!-- Report Functions Row -->
         <b-row>
-            <div class="functions-wrapper">
+            <b-col cols="12" md="auto">
                 <report-form-filter></report-form-filter>
-                    <!-- <label class="filter__label" for="filter">Filter Materials</label>
-                    <input class="filter__input" id="filter" type="search" name="filter" placeholder="Search"> -->
+            </b-col>
+            <div class="functions-wrapper">
             </div>
-                <!-- <div class="functions__download-wrapper">
-                    <label class="download__label" for="filter">Export to Spreadsheet</label>
-                    <button class="download__input" type="button" id="button" name="download" value="Download"></button>
-                </div> -->
-            <!-- <report-form-download></report-form-download> -->
             <!-- Report Functions
                 # Full Width (md)
                 # Small All Items Stack 100% Column width
                 # Child Components: Filter, Download as Spreadsheet
             -->
         </b-row>
+        <!-- End of Report Functions -->
     </b-container>
 </template>
 
@@ -52,7 +56,7 @@ export default {
             {
                 id: 1,
                 icon: 'book-open',
-                number: 89,
+                count: 89,
                 name: 'Open Orders'
             }
           ]

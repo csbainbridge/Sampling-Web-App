@@ -4,20 +4,26 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 
-// Style Dependencies
+// Bootstrap Dependencies
 import {
   BootstrapVue,
   IconsPlugin,
   TablePlugin,
   BootstrapVueIcons
 } from 'bootstrap-vue'
+
+// Font Awesome Dependencies
 import { library } from '@fortawesome/fontawesome-svg-core'
 import {
   faFillDrip,
   faBookOpen,
   faBoxOpen,
-  faIndustry
+  faIndustry,
+  faVial,
+  faPencilAlt,
+  faUserCircle
 } from '@fortawesome/free-solid-svg-icons'
+import { faUserCircle as farUserCircle } from '@fortawesome/free-regular-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 // Register Font Awesome Components
@@ -25,7 +31,11 @@ library.add({
   faFillDrip,
   faBookOpen,
   faBoxOpen,
-  faIndustry
+  faIndustry,
+  faVial,
+  faPencilAlt,
+  faUserCircle,
+  farUserCircle
 })
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 
