@@ -52,6 +52,9 @@ export default {
         box-shadow: 2px 2px 8px 1px rgba(0, 0, 0, .2);
 
         /* 05.06.2020 TODO: Add media query always 100% up until md size then max-width is  216px */
+        @media (min-width: 992px) {
+            width: 16rem;
+        }
 
         &__icon {
             margin-left: 1rem;

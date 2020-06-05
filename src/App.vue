@@ -126,19 +126,22 @@
             <b-col
               cols="12"
               sm="6"
-              md="4">
+              md="4"
+              lg="auto">
               <rb-dash-card></rb-dash-card>
             </b-col>
             <b-col
               cols="12"
               sm="6"
-              md="4">
+              md="4"
+              lg="auto">
               <rb-dash-card></rb-dash-card>
             </b-col>
             <b-col
               cols="12"
               sm="6"
-              md="4">
+              md="4"
+              lg="auto">
               <rb-dash-card></rb-dash-card>
             </b-col>
           </b-row>
