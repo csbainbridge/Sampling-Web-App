@@ -3,9 +3,7 @@
         <font-awesome-icon class="dash-card__icon" :icon="icon"></font-awesome-icon>
         <div class="dash-card__content">
             <p class="dash-card__content-count">{{ count }}</p>
-            <p class="dash-card__content-text">
-               {{ name }}
-            </p>
+            <p class="dash-card__content-text">{{ name }}</p>
         </div>
     </div>
 </template>

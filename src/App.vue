@@ -12,9 +12,6 @@
             md="2"
             lg="1"
             class="d-flex justify-content-center align-items-center layout-column-left h-100">
-            <!-- <div class="logo">
-              <p class="d-none d-sm-block m-0">{{ RBAppConfig.trademark }}</p>
-            </div> -->
             <div class="hamburger">
               <i class="fas fa-bars d-sm-none"></i>
             </div>
