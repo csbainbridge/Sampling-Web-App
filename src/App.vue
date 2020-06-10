@@ -9,11 +9,13 @@
           <b-col
             cols="1"
             sm="1"
-            md="2"
+            md="1"
             lg="1"
             class="d-flex justify-content-center align-items-center layout-column-left h-100">
             <div class="hamburger">
-              <i class="fas fa-bars d-sm-none"></i>
+                <b-icon
+                  @click="toggleNav"
+                  :icon="menuHidden ? 'list' : 'x'" />
             </div>
           </b-col>
           <b-col cols="1" class="d-none d-lg-flex align-items-center">
@@ -31,16 +33,10 @@
             <div class="header__title text-nowrap">
               {{ RBAppConfig.name }}
             </div>
-            <div class="header__functions d-flex">
-              <div class="header__user d-flex align-items-center">
-                <p class="d-none d-md-flex m-0">{{ username }}</p>
-                  <font-awesome-icon
-                    class="header__user-icon mx-1"
-                    :icon="['far', 'user-circle']"
-                    fixed-width>
-                </font-awesome-icon>
-              </div>
-            </div>
+            <!-- Move to RBHeaderFunctions.vue component
+                To start with this may only be the username, potential for other components to be added
+             -->
+            <RBFunctions username="CRODA/curtis.bainbridge" />
           </b-col>
         </header>
       </b-row>
@@ -49,60 +45,109 @@
       <b-row class="layout-content-height flex-nowrap">
         <!-- Column Navigation -->
         <b-col
-          cols="1"
-          md="2"
+          md="1"
           lg="1"
-          class="d-sm-flex layout-column-left p-0">
+          class="d-sm-flex layout-column-left p-0 nav-toggle--transition"
+          :class="menuHidden ? 'col-1 col-lg-1' : 'd-flex col-12 col-md-2 col-lg-2'">
           <!-- Navigation Component -->
+          <!-- TOOD: Move to RBNavigation.vue and add router links -->
           <nav class="navigation">
             <ul class="navigation flex-no-wrap">
-              <li class="navigation__link d-flex">
+              <li class="navigation__link d-flex pl-2 pl-md-0"
+                :class="menuHidden ?
+                  'flex-column pl-sm-0' :
+                  'flex-row flex-md-column flex-lg-row justify-content-start justify-content-md-center justify-content-lg-start pl-2'">
                 <font-awesome-icon
                     class="my-2 mx-3"
                     :icon="['fas', 'book-open']"
                     fixed-width>
                 </font-awesome-icon>
-                <p class="nav__item-text d-none d-md-block d-lg-none m-0">Outstanding Orders</p>
+                <p class="nav__item-text nav__item-text--small m-0">
+                  {{ menuHidden ?
+                    'OSO' :
+                    'Outstanding Orders' }}
+                </p>
+                <!-- <p class="nav__item-text--small m-0">OSO</p> -->
               </li>
-              <li class="navigation__link d-flex">
+              <li class="navigation__link d-flex pl-2 pl-md-0"
+                :class="menuHidden ?
+                  'flex-column pl-sm-0' :
+                  'flex-row flex-md-column flex-lg-row justify-content-start justify-content-md-center justify-content-lg-start pl-2'">
                 <font-awesome-icon
                     class="m-2 mx-3"
                     :icon="['fas', 'vial']"
                     fixed-width>
                   </font-awesome-icon>
-                <p class="nav__item-text d-none d-md-block d-lg-none m-0">Replenish Sample Stock</p>
+                <p class="nav__item-text nav__item-text--small m-0">
+                  {{ menuHidden ?
+                    'Sample Stock' :
+                    'Replenish Sample Stock' }}
+                </p>
+                <!-- <p class="nav__item-text--small m-0">Sample Stock</p> -->
               </li>
-              <li class="navigation__link d-flex">
+              <li class="navigation__link d-flex pl-2 pl-md-0"
+                 :class="menuHidden ?
+                  'flex-column pl-sm-0' :
+                  'flex-row flex-md-column flex-lg-row justify-content-start justify-content-md-center justify-content-lg-start pl-2'">
                  <font-awesome-icon
                     class="m-2 mx-3"
                     :icon="['fas', 'fill-drip']"
                     fixed-width>
                   </font-awesome-icon>
-                <p class="nav__item-text d-none d-md-block d-lg-none m-0">Replenish Bucket Stock</p>
+                <p class="nav__item-text nav__item-text--small m-0">
+                  {{ menuHidden ?
+                    'Bucket Stock' :
+                    'Replenish Bucket Stock' }}
+                </p>
+                <!-- <p class="nav__item-text--small m-0">Bucket Stock</p> -->
               </li>
-              <li class="navigation__link d-flex">
+              <li class="navigation__link d-flex pl-2 pl-md-0"
+                :class="menuHidden ?
+                  'flex-column pl-sm-0' :
+                  'flex-row flex-md-column flex-lg-row justify-content-start justify-content-md-center justify-content-lg-start pl-2'">
                  <font-awesome-icon
                     class="m-2 mx-3"
                     :icon="['fas', 'box-open']"
                     fixed-width>
                   </font-awesome-icon>
-                <p class="nav__item-text d-none d-md-block d-lg-none m-0">Materials to Order</p>
+                <p class="nav__item-text nav__item-text--small m-0">
+                  {{ menuHidden ?
+                    'Order' :
+                    'Materials to Order' }}
+                </p>
+                <!-- <p class="nav__item-text--small m-0">Order</p> -->
               </li>
-              <li class="navigation__link d-flex">
+              <li class="navigation__link d-flex pl-2 pl-md-0"
+                :class="menuHidden ?
+                  'flex-column pl-sm-0' :
+                  'flex-row flex-md-column flex-lg-row justify-content-start justify-content-md-center justify-content-lg-start pl-2'">
                  <font-awesome-icon
                     class="m-2 mx-3"
                     :icon="['fas', 'industry']"
                     fixed-width>
                   </font-awesome-icon>
-                <p class="nav__item-text d-none d-md-block d-lg-none m-0">Production Availability</p>
+                <p class="nav__item-text nav__item-text--small m-0">
+                  {{ menuHidden ?
+                    'Production' :
+                    'Production Availability' }}
+                </p>
+                <!-- <p class="nav__item-text--small m-0">Production</p> -->
               </li>
-              <li class="navigation__link d-flex">
+              <li class="navigation__link d-flex pl-2 pl-md-0"
+                :class="menuHidden ?
+                  'flex-column pl-sm-0' :
+                  'flex-row flex-md-column flex-lg-row justify-content-start justify-content-md-center justify-content-lg-start pl-2'">
                  <font-awesome-icon
                     class="m-2 mx-3"
                     :icon="['fas', 'pencil-alt']"
                     fixed-width>
                   </font-awesome-icon>
-                <p class="nav__item-text d-none d-md-block d-lg-none m-0">Material Administration</p>
+                <p class="nav__item-text nav__item-text--small m-0">
+                  {{ menuHidden ?
+                    'Admin' :
+                    'Material Administration' }}
+                </p>
+                <!-- <p class="nav__item-text--small m-0">Admin</p> -->
               </li>
             </ul>
           </nav>
@@ -110,16 +155,21 @@
         </b-col>
         <!-- End of Column Navigation -->
         <!-- Column Content -->
+        <!-- TODO: Move layout to each Report*.vue file
+              Render different dash cards
+         -->
         <b-col
-          cols
           md="10"
-          lg="11">
+          class="p-md-3"
+          :class="menuHidden ?
+                  'col-12 col-sm-10 col-lg-11' :
+                  'd-md-block col-0 col-lg-10 p-0'">
           <!-- Content Title -->
-          <b-row>
+          <b-row :class="menuHidden ? 'd-flex' : 'd-none d-md-flex'">
             <b-col>Content Title</b-col>
           </b-row>
           <!-- Content Cards -->
-          <b-row>
+          <b-row :class="menuHidden ? 'd-flex' : 'd-none d-md-flex'">
             <b-col
               cols="12"
               sm="6"
@@ -155,17 +205,24 @@
 // import RBUserLogin from '@/components/RBUserLogin.vue'
 import RBAppConfig from '@/utilities/RBAppConfig'
 import RBDashCard from '@/components/RBReportCard'
+import RBFunctions from '@/components/RBFunctions'
 // 'rb-navigation': RBNavigation,
 //     'rb-user': RBUserLogin
 export default {
   components: {
-    'rb-dash-card': RBDashCard
+    'rb-dash-card': RBDashCard,
+    RBFunctions
   },
   data () {
     return {
       RBAppConfig,
       username: 'CRODA/curtis.bainbridge',
       menuHidden: true
+    }
+  },
+  methods: {
+    toggleNav () {
+      this.menuHidden = !this.menuHidden
     }
   }
 }
@@ -177,6 +234,11 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap');
 @import "~@/assets/scss/_rb-reports.scss";
 /* New layout CSS */
+/* Animation Classes */
+.nav-toggle--transition {
+  transition: all 0.2s ease-in;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -208,7 +270,7 @@ html, body, #app {
 .layout-content-height {
   min-height: 564px;
   height: calc(100% - 3rem);
-} /* ## HERE ##*/
+}
 
 .logo > p {
   text-align: center;
@@ -216,7 +278,7 @@ html, body, #app {
 }
 
 .hamburger {
-  font-size: 1.4rem;
+  font-size: 2rem;
 }
 
 header {
@@ -225,6 +287,7 @@ header {
 }
 
 .header__title {
+    font-size: 0.6rem;
     text-transform: uppercase;
     letter-spacing: 0.15rem;
 }
@@ -251,6 +314,7 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
+    border-color: #3F8957;
 }
 
 .navigation__link:hover {
@@ -263,21 +327,26 @@ header {
     cursor: pointer;
 };
 
+.nav__item-text {
+  font-size: 1rem;
+  transition: all 0.5s ease-in;
+}
+
 .card {
     height: 5rem;
 }
 
 @media (min-width: 576px) {
-    .layout-left-column {
-        display: flex;
+    .header__title {
+      font-size: 1rem;
     }
-}
+  .layout-left-column {
+    display: flex;
+  }
 
-@media (min-width: 768px) {
-    .nav__item-text {
-        font-size: 0.6rem;
-    }
-
+  .nav__item-text {
+    font-size: 0.6rem;
+  }
 }
 
 @media (min-width: 992px) {
@@ -289,63 +358,9 @@ header {
     }
 }
 
-@media (min-width: 1112px) {
-    .nav__item-text {
-        font-size: 0.8rem;
-    }
-}
-
-@media (min-width: 1366px) {
-    // .navigation__link {
-    //     flex-direction: row;
-    //     justify-content: flex-start;
-    //     padding-left: 0.5rem;
-    // }
-
-    // .navigation__link > i {
-    //     margin-right: 1rem !important;
-    // }
-}
-
 @media (min-width: 1440px) {
     .nav__item-text {
         font-size: 0.8rem;
     }
 }
-
-// header {
-//   background-color: $color-theme-dark;
-//   min-height: 2rem;
-//   height: 5rem;
-//   box-shadow: 10px 1px 7.5px 1px rgba(0, 0, 0, 0.30);
-// }
-
-// .brand {
-//     color: white;
-//     font-family: $font-family-brand;
-//     letter-spacing: 0.1rem;
-//     line-height: 2rem;
-//     margin-left: $spacing-standard;
-//     text-decoration: underline;
-//     padding-bottom: 5px;
-
-//     &:hover {
-//       color: white;
-//     }
-// }
-
-// .croda-heading-title {
-//   letter-spacing: $letter-spacing-medium;
-//   text-transform: uppercase;
-// }
-
-// @media (max-width: 1072px) {
-//   .croda-heading-title {
-//      font-size: 1.25rem;
-//   }
-// }
-// .fit-height {
-//   height: calc(100% - 5rem) !important/* height minus height of header */
-// }
-
 </style>
