@@ -1,6 +1,6 @@
 <template>
     <div class="header__functions d-flex">
-      <RBFunctionsUser :username="username" />
+      <RBFunctionsUser />
     </div>
 </template>
 
@@ -10,12 +10,6 @@ import RBFunctionsUser from '@/components/RBFunctionsUser'
 export default {
     components: {
         RBFunctionsUser
-    },
-    props: {
-        username: {
-            type: String,
-            required: false
-        }
     },
     data () {
         return {

@@ -1,53 +1,47 @@
 <template>
-    <b-container fluid class="report px-md-0 pl-3">
-        <!-- Report Title Row -->
-        <b-row>
-            <b-col cols="auto">
-                <h2 class="report__title">{{ title }}</h2>
+    <b-col
+        md="10"
+        class="p-md-3"
+        :class="menuHidden ?
+                'col-12 col-sm-10 col-lg-11' :
+                'd-md-block col-0 col-lg-10 p-0'">
+        <!-- Content Title -->
+        <b-row :class="menuHidden ? 'd-flex' : 'd-none d-md-flex'">
+            <b-col>
+                <h2 class="content__title">{{ title }}</h2>
             </b-col>
         </b-row>
-        <!-- End of Title Row -->
-
-        <!-- Report Cards Row -->
-        <b-row>
-            <!-- Render Report Cards -->
-            <b-col cols="auto" v-for="card in cards" :key="card.id">
-                <rb-report-card
+        <!-- Content Cards -->
+        <b-row :class="menuHidden ? 'd-flex' : 'd-none d-md-flex'">
+            <b-col
+                v-for="card in cards"
+                :key="card.key"
+                cols="12"
+                sm="6"
+                md="4"
+                lg="auto">
+                <RBReportCard
                     :icon="card.icon"
                     :count="card.count"
-                    :name="card.name"
-                    :key="card.id">
-                </rb-report-card>
+                    :name="card.name" />
             </b-col>
         </b-row>
-        <!-- End of Report Cards Row -->
-
-        <!-- Report Functions Row -->
-        <b-row>
-            <b-col cols="12" md="auto">
-                <report-form-filter></report-form-filter>
-            </b-col>
-            <div class="functions-wrapper">
-            </div>
-            <!-- Report Functions
-                # Full Width (md)
-                # Small All Items Stack 100% Column width
-                # Child Components: Filter, Download as Spreadsheet
-            -->
-        </b-row>
-        <!-- End of Report Functions -->
-    </b-container>
+    </b-col>
 </template>
 
 <script>
 import RBReportCard from '@/components/RBReportCard.vue'
-import RBReportFormFilter from '@/components/RBReportFormFilter.vue'
-// import RBReportFormDownload from '@/components/RBReportFormDownload.vue'
+
 export default {
   name: 'ReportOutstandingOrders',
   components: {
-      'rb-report-card': RBReportCard,
-      'report-form-filter': RBReportFormFilter
+      RBReportCard
+  },
+  props: {
+      menuHidden: {
+          type: Boolean,
+          required: true
+      }
   },
   data () {
       return {
@@ -66,5 +60,11 @@ export default {
 </script>
 
 <style lang="scss">
-
+    .content {
+        &__title {
+            color: #F7F7F7;
+            font-weight: 400;
+            letter-spacing: .1rem;
+        }
+    }
 </style>

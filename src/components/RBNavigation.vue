@@ -1,86 +1,133 @@
 <template>
-  <!-- Navigation Start -->
+ <b-col
+  md="1"
+  lg="1"
+  class="d-sm-flex layout-column-left p-0 nav-toggle--transition"
+  :class="menuHidden ? 'col-1 col-lg-1' : 'd-flex col-12 col-md-2 col-lg-2'">
+  <!-- Navigation Component -->
+  <!-- TOOD: Move to RBNavigation.vue and add router links -->
   <nav class="navigation">
-    <section class="d-none d-md-flex h-25 navigation__header">
-      <p class="navigation__header-text">menu</p>
-    </section>
-    <ul class="navigation__menu">
-
-      <router-link to="/report/outstanding-orders">
-        <li class="navigation__menu-item">
-            <div class="navigation__menu-items-wrapper">
-              <b-icon-file-ruled font-scale="2" variant="light"></b-icon-file-ruled>
-              <span class="navigation__menu-item-text">Outstanding Orders</span>
-            </div>
+    <ul class="navigation flex-no-wrap">
+      <router-link to="/report/outstanding-orders" class="navigation__link navigation__link--border-none d-flex">
+        <li class="navigation__link d-flex pl-2 pl-md-0"
+          :class="menuHidden ?
+            'flex-column pl-sm-0' :
+            'flex-row flex-md-column flex-lg-row justify-content-start justify-content-md-center justify-content-lg-start pl-2'">
+          <font-awesome-icon
+              class="my-2 mx-3"
+              :icon="['fas', 'book-open']"
+              fixed-width>
+          </font-awesome-icon>
+          <p class="navigation__link-item-text m-0">
+            {{ menuHidden ?
+              'OSO' :
+              'Outstanding Orders' }}
+          </p>
         </li>
       </router-link>
-
-      <router-link to="/report/replenish-sample-stock">
-        <li class="navigation__menu-item">
-            <div class="navigation__menu-items-wrapper">
-              <b-icon-file-ruled variant="light" font-scale="2"></b-icon-file-ruled>
-              <span class="navigation__menu-item-text">Replenish Sampling Stock</span>
-            </div>
+      <router-link to="/report/replenish-sample-stock" class="navigation__link navigation__link--border-none d-flex">
+        <li class="navigation__link d-flex pl-2 pl-md-0"
+          :class="menuHidden ?
+            'flex-column pl-sm-0' :
+            'flex-row flex-md-column flex-lg-row justify-content-start justify-content-md-center justify-content-lg-start pl-2'">
+          <font-awesome-icon
+              class="m-2 mx-3"
+              :icon="['fas', 'vial']"
+              fixed-width>
+            </font-awesome-icon>
+          <p class="navigation__link-item-text m-0">
+            {{ menuHidden ?
+              'Sample Stock' :
+              'Replenish Sample Stock' }}
+          </p>
         </li>
       </router-link>
-
-      <router-link to="/report/replenish-bucket-stock">
-        <li class="navigation__menu-item">
-            <div class="navigation__menu-items-wrapper">
-              <b-icon-file-ruled variant="light" font-scale="2"></b-icon-file-ruled>
-              <span class="navigation__menu-item-text">Replenish Bucket Stock</span>
-            </div>
+      <router-link to="/report/replenish-bucket-stock" class="navigation__link navigation__link--border-none d-flex">
+        <li class="navigation__link d-flex pl-2 pl-md-0"
+          :class="menuHidden ?
+            'flex-column pl-sm-0' :
+            'flex-row flex-md-column flex-lg-row justify-content-start justify-content-md-center justify-content-lg-start pl-2'">
+          <font-awesome-icon
+              class="m-2 mx-3"
+              :icon="['fas', 'fill-drip']"
+              fixed-width>
+            </font-awesome-icon>
+          <p class="navigation__link-item-text m-0">
+            {{ menuHidden ?
+              'Bucket Stock' :
+              'Replenish Bucket Stock' }}
+          </p>
         </li>
       </router-link>
-      <router-link to="/report/materials-to-order">
-        <li class="navigation__menu-item">
-            <div class="navigation__menu-items-wrapper">
-              <b-icon-file-ruled variant="light" font-scale="2"></b-icon-file-ruled>
-              <span class="navigation__menu-item-text">Materials to Order</span>
-            </div>
+      <router-link to="/report/materials-to-order" class="navigation__link navigation__link--border-none d-flex">
+        <li class="navigation__link d-flex pl-2 pl-md-0"
+          :class="menuHidden ?
+            'flex-column pl-sm-0' :
+            'flex-row flex-md-column flex-lg-row justify-content-start justify-content-md-center justify-content-lg-start pl-2'">
+          <font-awesome-icon
+              class="m-2 mx-3"
+              :icon="['fas', 'box-open']"
+              fixed-width>
+            </font-awesome-icon>
+          <p class="navigation__link-item-text m-0">
+            {{ menuHidden ?
+              'Order' :
+              'Materials to Order' }}
+          </p>
         </li>
       </router-link>
-
-      <router-link to="/report/production-availability">
-        <li class="navigation__menu-item">
-            <div class="navigation__menu-items-wrapper">
-              <b-icon-file-ruled variant="light" font-scale="2"></b-icon-file-ruled>
-              <span class="navigation__menu-item-text">Production Availability</span>
-            </div>
+      <router-link to="/report/production-availability" class="navigation__link navigation__link--border-none d-flex">
+        <li class="navigation__link d-flex pl-2 pl-md-0"
+          :class="menuHidden ?
+            'flex-column pl-sm-0' :
+            'flex-row flex-md-column flex-lg-row justify-content-start justify-content-md-center justify-content-lg-start pl-2'">
+          <font-awesome-icon
+              class="m-2 mx-3"
+              :icon="['fas', 'industry']"
+              fixed-width>
+            </font-awesome-icon>
+          <p class="navigation__link-item-text m-0">
+            {{ menuHidden ?
+              'Production' :
+              'Production Availability' }}
+          </p>
         </li>
       </router-link>
-
-      <router-link to="/settings/material-administration">
-        <li class="navigation__menu-item">
-            <div class="navigation__menu-items-wrapper">
-              <b-icon-pencil variant="light" font-scale="2"></b-icon-pencil>
-              <span class="navigation__menu-item-text">Material Administration</span>
-            </div>
+      <router-link to="/settings/material-administration" class="navigation__link navigation__link--border-none d-flex">
+        <li class="navigation__link d-flex pl-2 pl-md-0"
+          :class="menuHidden ?
+            'flex-column pl-sm-0' :
+            'flex-row flex-md-column flex-lg-row justify-content-start justify-content-md-center justify-content-lg-start pl-2'">
+          <font-awesome-icon
+              class="m-2 mx-3"
+              :icon="['fas', 'pencil-alt']"
+              fixed-width>
+            </font-awesome-icon>
+          <p class="navigation__link-item-text m-0">
+            {{ menuHidden ?
+              'Admin' :
+              'Material Administration' }}
+          </p>
         </li>
       </router-link>
-
     </ul>
-    <!-- Navigation end -->
-
-    <!-- User Login -->
-    <div class="navigation__user-wrapper">
-        <rb-user class="d-inline d-md-none"></rb-user>
-    </div>
-    <!-- User Login End -->
-
   </nav>
+  <!-- End of Navigation Component-->
+</b-col>
 </template>
 
 <script>
-import RBUserLogin from '@/components/RBUserLogin.vue'
 export default {
-  components: {
-    'rb-user': RBUserLogin
+  props: {
+    menuHidden: {
+      type: Boolean,
+      required: true,
+      default: false
+    }
   },
-  props: {},
   data () {
     return {
-      message: 'success'
+
     }
   }
 }
@@ -89,71 +136,63 @@ export default {
 <style lang="scss">
 
 .navigation {
-  height: 100%;
-  min-height: 698px;
-  box-shadow: 1px 10px 7.5px 1px rgba(0, 0, 0, 0.30);
-  background-color: $rb-controls-dark-background-color;
-  @media (min-width: 768px) {
-    max-width: 24rem; /* TODO: Weather to let this take up full width of its parents column or not - looks very distorted on large displays */
-    &__header {
-      height: 16rem;
-    }
-  }
-  &__user-wrapper {
-    display: flex;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-    padding-left: 2rem;
-    padding-right: 2rem;
-  }
-  &__header {
-    display: flex;
-    justify-content: flex-end;
-    flex-direction: column;
-    background-color: $color-theme-dark;
-    &-text {
-      display: inherit;
-      justify-content: flex-end;
-      margin-right: $spacing-standard;
-      color: #fff;
-      right: 0;
-      text-transform: uppercase;
-      font-size: $size-font-medium;
-      letter-spacing: 0.1rem;
-    }
-  }
-  &__menu {
-    color: #000;
-    list-style: none;
-    padding: 0;
-    margin: 0;
+    z-index: 1;
+    width: 100%;
     display: flex;
     flex-direction: column;
-    &-items-wrapper {
+    font-size: 1.6rem;
+    background-color: #1E1E1E;
+    color: #8e8e8e !important;
+    &__link {
+      width: 100%;
+      list-style: none;
+      flex: 0 0 5rem;
+      flex-direction: column;
       display: flex;
       align-items: center;
-    }
-    & > a:hover {
-      text-decoration: none;
-    }
-    &-item {
-      display: flex;
-      justify-content: flex-start;
-      align-items: center;
-      border-bottom: 1px solid rgb(61, 61, 61);
-      height: 4rem;
-      padding-left: 2rem;
-      border-right: 0px solid #28a745;
+      justify-content: center;
+      border-color: #3F8957;
       &:hover {
-        border-right: 6px solid #28a745;
-        background-color: rgb(68, 68, 68);
-        transition: all 0.2s ease-in;
+        z-index: 2;
+        border-left: 6px solid #3F8957;
+        background-color: #333333;
+        color:#F7F7F7;
+        box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+        width: calc(100% + 3px);
+        transition: all ease-in 0.1s;
+        cursor: pointer;
       }
-      &-text {
-        margin-left: $spacing-standard;
-        color: $color-font-primary;
+      &-item-text {
+        font-size: 1rem;
+        @media (min-width: 576px) {
+          font-size: 0.6rem;
+        }
+        @media (min-width: 1440px) {
+          font-size: 0.8rem;
+        }
+      }
+      &--border-none {
+        border: none !important;
       }
     }
-  }
 }
+// .nav__item {
+//   @media (min-width: 992px) {
+//     padding-left: 0.5rem;
+//   }
+//   &-text {
+//     font-size: 1rem;
+//     @media (min-width: 576px) {
+//       font-size: 0.6rem;
+//     }
+//     @media (min-width: 1440px) {
+//       font-size: 0.8rem;
+//     }
+//   }
+// }
+
+.router-link-active {
+  color: #F7F7F7 !important;
+}
+
 </style>
