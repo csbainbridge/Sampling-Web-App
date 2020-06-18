@@ -12,7 +12,7 @@
         <li class="navigation__link d-flex pl-2 pl-md-0"
           :class="menuHidden ?
             'flex-column pl-sm-0' :
-            'flex-row flex-md-column flex-lg-row justify-content-start justify-content-md-center justify-content-lg-start pl-2'">
+            'flex-row flex-md-column flex-xl-row justify-content-start justify-content-md-center justify-content-xl-start pl-2'">
           <font-awesome-icon
               class="my-2 mx-3"
               :icon="['fas', 'book-open']"
@@ -29,7 +29,7 @@
         <li class="navigation__link d-flex pl-2 pl-md-0"
           :class="menuHidden ?
             'flex-column pl-sm-0' :
-            'flex-row flex-md-column flex-lg-row justify-content-start justify-content-md-center justify-content-lg-start pl-2'">
+            'flex-row flex-md-column flex-xl-row justify-content-start justify-content-md-center justify-content-xl-start pl-2'">
           <font-awesome-icon
               class="m-2 mx-3"
               :icon="['fas', 'vial']"
@@ -46,7 +46,7 @@
         <li class="navigation__link d-flex pl-2 pl-md-0"
           :class="menuHidden ?
             'flex-column pl-sm-0' :
-            'flex-row flex-md-column flex-lg-row justify-content-start justify-content-md-center justify-content-lg-start pl-2'">
+            'flex-row flex-md-column flex-xl-row justify-content-start justify-content-md-center justify-content-xl-start pl-2'">
           <font-awesome-icon
               class="m-2 mx-3"
               :icon="['fas', 'fill-drip']"
@@ -63,7 +63,7 @@
         <li class="navigation__link d-flex pl-2 pl-md-0"
           :class="menuHidden ?
             'flex-column pl-sm-0' :
-            'flex-row flex-md-column flex-lg-row justify-content-start justify-content-md-center justify-content-lg-start pl-2'">
+            'flex-row flex-md-column flex-xl-row justify-content-start justify-content-md-center justify-content-xl-start pl-2'">
           <font-awesome-icon
               class="m-2 mx-3"
               :icon="['fas', 'box-open']"
@@ -80,7 +80,7 @@
         <li class="navigation__link d-flex pl-2 pl-md-0"
           :class="menuHidden ?
             'flex-column pl-sm-0' :
-            'flex-row flex-md-column flex-lg-row justify-content-start justify-content-md-center justify-content-lg-start pl-2'">
+            'flex-row flex-md-column flex-xl-row justify-content-start justify-content-md-center justify-content-xl-start pl-2'">
           <font-awesome-icon
               class="m-2 mx-3"
               :icon="['fas', 'industry']"
@@ -97,7 +97,7 @@
         <li class="navigation__link d-flex pl-2 pl-md-0"
           :class="menuHidden ?
             'flex-column pl-sm-0' :
-            'flex-row flex-md-column flex-lg-row justify-content-start justify-content-md-center justify-content-lg-start pl-2'">
+            'flex-row flex-md-column flex-xl-row justify-content-start justify-content-md-center justify-content-xl-start pl-2'">
           <font-awesome-icon
               class="m-2 mx-3"
               :icon="['fas', 'pencil-alt']"
@@ -167,7 +167,7 @@ export default {
         @media (min-width: 576px) {
           font-size: 0.6rem;
         }
-        @media (min-width: 1440px) {
+        @media (min-width: 992px) {
           font-size: 0.8rem;
         }
       }
@@ -176,20 +176,6 @@ export default {
       }
     }
 }
-// .nav__item {
-//   @media (min-width: 992px) {
-//     padding-left: 0.5rem;
-//   }
-//   &-text {
-//     font-size: 1rem;
-//     @media (min-width: 576px) {
-//       font-size: 0.6rem;
-//     }
-//     @media (min-width: 1440px) {
-//       font-size: 0.8rem;
-//     }
-//   }
-// }
 
 .router-link-active {
   color: #F7F7F7 !important;

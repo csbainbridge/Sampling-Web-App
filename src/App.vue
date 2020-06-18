@@ -24,10 +24,9 @@
             </div>
           </b-col>
           <!-- Column Header -->
-          <!-- TODO: This requires standard cols class - might work wuthout but check when layout is complete -->
           <b-col
             cols
-            md="10"
+            md="11"
             lg="10"
             class="d-flex justify-content-between align-items-center h-100">
             <div class="header__title text-nowrap">

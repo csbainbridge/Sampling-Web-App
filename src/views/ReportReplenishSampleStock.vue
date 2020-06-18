@@ -1,10 +1,9 @@
 <template>
     <b-col
-        md="10"
         class="p-md-3"
         :class="menuHidden ?
                 'col-12 col-sm-10 col-lg-11' :
-                'd-md-block col-0 col-lg-10 p-0'">
+                'd-md-block col-0 col-md-10 col-lg-10 p-0'">
         <!-- Content Title -->
         <b-row :class="menuHidden ? 'd-flex' : 'd-none d-md-flex'">
             <b-col>
@@ -26,16 +25,26 @@
                     :name="card.name" />
             </b-col>
         </b-row>
+        <!-- Filter Component -->
+        <b-row :class="menuHidden ? 'd-flex' : 'd-none d-md-flex'">
+            <b-col cols="12">
+               <RBFilter />
+            </b-col>
+        </b-row>
     </b-col>
 </template>
 
 <script>
-import RBReportCard from '@/components/RBReportCard.vue'
+import {
+    RBReportCard,
+    RBFilter
+} from '@/components'
 
 export default {
-  name: 'ReportOutstandingOrders',
+  name: 'ReportReplenishSampleStock',
   components: {
-      RBReportCard
+      RBReportCard,
+      RBFilter
   },
   props: {
       menuHidden: {

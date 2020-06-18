@@ -21,7 +21,8 @@ import {
   faIndustry,
   faVial,
   faPencilAlt,
-  faUserCircle
+  faUserCircle,
+  faSearch
 } from '@fortawesome/free-solid-svg-icons'
 import { faUserCircle as farUserCircle } from '@fortawesome/free-regular-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
@@ -35,7 +36,8 @@ library.add({
   faVial,
   faPencilAlt,
   faUserCircle,
-  farUserCircle
+  farUserCircle,
+  faSearch
 })
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 

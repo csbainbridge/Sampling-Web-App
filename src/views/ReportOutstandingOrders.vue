@@ -26,16 +26,26 @@
                     :name="card.name" />
             </b-col>
         </b-row>
+        <!-- Filter Component -->
+        <b-row :class="menuHidden ? 'd-flex' : 'd-none d-md-flex'">
+            <b-col cols="12">
+               <RBFilter />
+            </b-col>
+        </b-row>
     </b-col>
 </template>
 
 <script>
-import RBReportCard from '@/components/RBReportCard.vue'
+import {
+    RBReportCard,
+    RBFilter
+} from '@/components'
 
 export default {
   name: 'ReportOutstandingOrders',
   components: {
-      RBReportCard
+      RBReportCard,
+      RBFilter
   },
   props: {
       menuHidden: {

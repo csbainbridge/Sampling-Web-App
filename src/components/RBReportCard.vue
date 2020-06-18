@@ -39,7 +39,7 @@ export default {
         display: flex;
         flex-direction: row;
         align-items: center;
-        height: 6rem;
+        height: 8rem;
         width: 100%;
         margin-top: 1rem;
         background-color: $dark-background-card;
@@ -71,9 +71,6 @@ export default {
 
             &-count {
                 font-size: 2.5rem;
-                @media (min-width: 576px) {
-                    font-size: 2rem;
-                }
             }
 
             &-text {
@@ -81,7 +78,10 @@ export default {
                 text-transform: uppercase;
                 letter-spacing: 0.1rem;
                 @media (min-width: 576px) {
-                    font-size: .85rem;
+                    font-size: .7rem;
+                }
+                @media (min-width: 992px) {
+                    font-size: .95rem;
                 }
             }
         }
