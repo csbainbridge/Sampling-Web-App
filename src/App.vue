@@ -104,12 +104,14 @@ html, body, #app {
 a {
   color: #8e8e8e !important;
   &:hover {
-    text-decoration: none;
+    text-decoration: none !important;
   }
 }
 
 #app {
-  background-image: linear-gradient(to bottom right, #373737, #191919);
+  /* Background fallback */
+  background-color: $rb-background-fallback;
+  background-image: $dark-background-gradient;
 }
 
 .layout {
@@ -144,7 +146,8 @@ a {
 }
 
 header {
-  background-color: #003932;
+  background-color: $rb-dashboard-header-colour;
+
   color: #F7F7F7;
 }
 

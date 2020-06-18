@@ -44,7 +44,7 @@ export default {
         margin-top: 1rem;
         background-color: $dark-background-card;
         color: #F7F7F7;
-        border-left: 1rem solid $card-border-color; /* or this color         #3F8957;? */
+        border-left: 1rem solid $card-border-color;
         border-top-left-radius: 0.5rem;
         border-bottom-left-radius: 0.5rem;
         border-top-right-radius: 0.25rem;

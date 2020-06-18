@@ -1,7 +1,7 @@
 <template>
     <b-col
         md="10"
-        class="p-md-3"
+        class="p-3"
         :class="menuHidden ?
                 'col-12 col-sm-10 col-lg-11' :
                 'd-md-block col-0 col-lg-10 p-0'">

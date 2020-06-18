@@ -26,13 +26,14 @@ export default {
 </script>
 
 <style lang="scss">
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap');
     .filter {
         &:focus {
             width: 100%;
             outline: none;
             border: 2px solid #3F8957 !important;
             transition: border ease-in .1s;
-            transition: width ease .2s
+            transition: width ease .4s
         }
         &-wrapper {
             display: flex;
@@ -51,6 +52,7 @@ export default {
     }
 
     input[type=search] {
+        font-family: 'IBM Plex Sans', sans-serif;
         width: 25rem;
         height: 5rem;
         background: #1E1E1E;
@@ -58,10 +60,11 @@ export default {
         border: 2px solid #1E1E1E;
         transition: border ease-in .1s;
         font-size: 1.5rem;
+        font-weight: 500;
         letter-spacing: .1rem;
         border-bottom-right-radius: .25rem;
         border-top-right-radius: .25rem;
-        transition: width ease .2s
+        transition: width ease .4s
     }
     input[type=search],
     .filter__icon-wrapper {

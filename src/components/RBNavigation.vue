@@ -141,8 +141,7 @@ export default {
     display: flex;
     flex-direction: column;
     font-size: 1.6rem;
-    background-color: #1E1E1E;
-    color: #8e8e8e !important;
+    background-color: $rb-dashboard-navigation-colour;
     &__link {
       width: 100%;
       list-style: none;
@@ -152,6 +151,7 @@ export default {
       align-items: center;
       justify-content: center;
       border-color: #3F8957;
+      color: $rb-dashboard-navigation-text-colour;
       &:hover {
         z-index: 2;
         border-left: 6px solid #3F8957;
