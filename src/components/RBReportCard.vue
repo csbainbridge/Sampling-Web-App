@@ -1,5 +1,5 @@
 <template>
-    <div class="dash-card">
+    <div class="dash-card my-4">
         <font-awesome-icon class="dash-card__icon" :icon="icon"></font-awesome-icon>
         <div class="dash-card__content d-flex align-items-baseline align-items-sm-start flex-sm-column">
             <p class="dash-card__content-count">{{ count }}</p>
@@ -41,7 +41,8 @@ export default {
         align-items: center;
         height: 8rem;
         width: 100%;
-        margin-top: 1rem;
+        // margin-top: 2rem;
+        margin-bottom: 2rem;
         background-color: $dark-background-card;
         color: #F7F7F7;
         border-left: 1rem solid $card-border-color;

@@ -5,8 +5,7 @@ $rb-dashboard-header-colour: #003932;
 
 /* Dashboard Navigation */
 $rb-dashboard-navigation-colour: #1E1E1E;
-$rb-dashboard-navigation-text-colour: #dadada;
-$rb-dashboard-navigation-text-hover-colour: #F7F7F7;
+
 
 /* Light Mode */
 
@@ -15,16 +14,19 @@ $rb-dashboard-navigation-text-hover-colour: #F7F7F7;
 */
 
 
+/* Component Colours */
+$dark-primary-colour: #3F8957;
+
+/* Text Colours */
+$rb-primary-text-colour-dark-2: #dadada;
+$rb-primary-text-colour-dark-1: #F7F7F7;
 
 /* Dashboard Background Gradient and Fallback colour */
 $dark-background-gradient: linear-gradient(to bottom right, #373737, #191919);
 $rb-background-fallback: #0F0F0F;
 
-/* Border */
-$dark-border-color: #28a745;
-
 /* Dashboard Card Theme */
-$card-border-color: #3F8957;
+$card-border-color: $dark-primary-colour;
 $dark-background-card: #343A40;
 
 /* Controls

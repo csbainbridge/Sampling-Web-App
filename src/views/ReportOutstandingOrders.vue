@@ -1,14 +1,13 @@
 <template>
+<!-- TODO: p-md-3 needs to be set across everything-->
     <b-col
-        md="10"
-        class="p-3"
         :class="menuHidden ?
                 'col-12 col-sm-10 col-lg-11' :
-                'd-md-block col-0 col-lg-10 p-0'">
+                'd-md-block col-md-10 col-0 col-lg-10'">
         <!-- Content Title -->
         <b-row :class="menuHidden ? 'd-flex' : 'd-none d-md-flex'">
             <b-col>
-                <h2 class="content__title">{{ title }}</h2>
+                <h2 class="content__title my-3">{{ title }}</h2>
             </b-col>
         </b-row>
         <!-- Content Cards -->
@@ -28,8 +27,17 @@
         </b-row>
         <!-- Filter Component -->
         <b-row :class="menuHidden ? 'd-flex' : 'd-none d-md-flex'">
-            <b-col cols="12">
+            <b-col
+                cols="12"
+                md="8">
+                <label class="report-label my-3" for="filterMaterials">Search</label>
                <RBFilter />
+            </b-col>
+            <b-col
+                cols="12"
+                md="4">
+                <label class="report-label my-3" for="export-report-btn">Export to .CSV</label>
+                <RBBasePrimaryButton id="export-report"></RBBasePrimaryButton>
             </b-col>
         </b-row>
     </b-col>
@@ -38,14 +46,16 @@
 <script>
 import {
     RBReportCard,
-    RBFilter
+    RBFilter,
+    RBBasePrimaryButton
 } from '@/components'
 
 export default {
   name: 'ReportOutstandingOrders',
   components: {
       RBReportCard,
-      RBFilter
+      RBFilter,
+      RBBasePrimaryButton
   },
   props: {
       menuHidden: {
@@ -70,11 +80,5 @@ export default {
 </script>
 
 <style lang="scss">
-    .content {
-        &__title {
-            color: #F7F7F7;
-            font-weight: 400;
-            letter-spacing: .1rem;
-        }
-    }
+    @import '@/assets/scss/_rb-reports.scss';
 </style>

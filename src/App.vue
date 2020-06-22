@@ -4,7 +4,7 @@
     <b-container fluid class="h-100">
       <!-- Row Header -->
       <b-row class="flex-nowrap">
-        <header class="d-flex flex-nowrap w-100 layout-header-height">
+        <header class="d-flex flex-nowrap w-100 layout-header-height col-12 p-0">
           <!-- Column Branding-->
           <b-col
             cols="1"
@@ -40,7 +40,7 @@
       <!-- Row Content -->
       <b-row class="layout-content-height flex-nowrap">
         <!-- Column Navigation -->
-        <RBNavigation :menuHidden="menuHidden" />
+        <RBTheNavigation :menuHidden="menuHidden" />
         <!-- End of Column Navigation -->
         <!-- Column Content -->
         <router-view :menuHidden="menuHidden" />
@@ -48,6 +48,7 @@
       </b-row>
       <!-- End of Row Content -->
     </b-container>
+    <RBTheModal />
   </div>
 
 </template>
@@ -56,13 +57,15 @@
 import RBAppConfig from '@/utilities/RBAppConfig'
 import {
   RBFunctions,
-  RBNavigation
+  RBTheNavigation,
+  RBTheModal
 } from '@/components'
 
 export default {
   components: {
-    RBNavigation,
-    RBFunctions
+    RBTheNavigation,
+    RBFunctions,
+    RBTheModal
   },
   data () {
     return {
@@ -99,6 +102,7 @@ export default {
 html, body, #app {
   height: 100%;
   overflow: auto;
+  overflow-x: hidden;
 }
 
 a {
@@ -153,7 +157,7 @@ header {
 
 .header {
   &__title {
-     font-size: 0.6rem;
+    font-size: 0.6rem;
     text-transform: uppercase;
     letter-spacing: 0.15rem;
     @media (min-width: 576px) {

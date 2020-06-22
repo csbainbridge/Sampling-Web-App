@@ -1,8 +1,15 @@
-.report {
-    color: $color-font-primary;
+.content {
     &__title {
-        text-transform: capitalize;
-        letter-spacing: .2rem;
-        margin-top: 1rem;
+        color: #F7F7F7;
+        font-weight: 400;
+        letter-spacing: .1rem;
+        font-size: 2.25rem !important;
     }
+}
+
+.report-label {
+    margin-bottom: 1rem;
+    color: $rb-primary-text-colour-dark-1;
+    letter-spacing: .1rem;
+    font-size: 1.25rem;
 }

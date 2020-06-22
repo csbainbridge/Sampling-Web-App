@@ -151,12 +151,12 @@ export default {
       align-items: center;
       justify-content: center;
       border-color: #3F8957;
-      color: $rb-dashboard-navigation-text-colour;
+      color: $rb-primary-text-colour-dark-2;
       &:hover {
         z-index: 2;
         border-left: 6px solid #3F8957;
         background-color: #333333;
-        color:#F7F7F7;
+        color: $rb-primary-text-colour-dark-1;
         box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
         width: calc(100% + 3px);
         transition: all ease-in 0.1s;
