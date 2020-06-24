@@ -37,7 +37,10 @@
                 cols="12"
                 md="4">
                 <label class="report-label my-3" for="export-report-btn">Export to .CSV</label>
-                <RBBasePrimaryButton id="export-report"></RBBasePrimaryButton>
+                <RBBasePrimaryButton
+                    id="export-report-btn"
+                    name="download">
+                </RBBasePrimaryButton>
             </b-col>
         </b-row>
     </b-col>

@@ -4,7 +4,8 @@
             id="filterMaterials"
             type="search"
             class="filter"
-            placeholder="Start typing to filter materials.." />
+            placeholder="Start typing to filter materials.."
+            v-model="filter" />
         <div class="filter__icon-wrapper">
             <font-awesome-icon
                 class=""

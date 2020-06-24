@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <!-- New Layout -->
+    <!-- Layout -->
     <b-container fluid class="h-100">
       <!-- Row Header -->
       <b-row class="flex-nowrap">
@@ -13,27 +13,28 @@
             lg="1"
             class="d-flex justify-content-center align-items-center layout-column-left h-100">
             <div class="hamburger">
-                <b-icon
-                  @click="toggleNav"
-                  :icon="menuHidden ? 'list' : 'x'" />
+                <b-icon @click="toggleNav" :icon="menuHidden ? 'list' : 'x'" />
             </div>
           </b-col>
+          <!-- Column Header Trademark -->
           <b-col cols="1" class="d-none d-lg-flex align-items-center">
              <div class="logo">
               <p class="d-none d-sm-block m-0">{{ RBAppConfig.trademark }}</p>
             </div>
           </b-col>
-          <!-- Column Header -->
+          <!-- End of Column Header Trademark -->
+          <!-- Column Header App Name and Functions -->
           <b-col
             cols
             md="11"
             lg="10"
             class="d-flex justify-content-between align-items-center h-100">
-            <div class="header__title text-nowrap">
-              {{ RBAppConfig.name }}
-            </div>
+            <div class="header__title text-nowrap">{{ RBAppConfig.name }}</div>
+            <!-- RB Functions Component / User Login -->
             <RBFunctions />
+            <!-- End of RB Functios Component -->
           </b-col>
+          <!-- End of Column Header App Name and Functions -->
         </header>
       </b-row>
 
@@ -48,9 +49,13 @@
       </b-row>
       <!-- End of Row Content -->
     </b-container>
-    <RBTheModal />
-  </div>
 
+    <!-- Material Modal with Transparent Page Mask for Modal focus -->
+    <div class="modal-page-cover"></div>
+    <RBTheModal />
+    <!-- End of Material Modal -->
+
+  </div>
 </template>
 
 <script>
@@ -171,6 +176,17 @@ header {
 
 .card {
     height: 5rem;
+}
+
+.modal-page-cover {
+  opacity: 1;
+  position: absolute;
+  top: 0;
+  z-index: 2;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  transition: opacity linear .2s;
 }
 
 </style>

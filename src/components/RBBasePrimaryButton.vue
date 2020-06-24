@@ -1,5 +1,5 @@
 <template>
-    <button :id="id" class="rb-primary-btn rb-primary-btn--fill">Download</button>
+    <button :id="id" class="rb-primary-btn rb-primary-btn--fill">{{ name }}</button>
 </template>
 
 <script>
@@ -8,12 +8,18 @@ export default {
         id: {
             type: String,
             required: true
+        },
+        name: {
+            type: String,
+            required: true,
+            default: 'Button'
         }
     }
 }
 </script>
 
 <style lang="scss">
+    // TODO: ADD :active states to button
     .rb-primary-btn {
         position: relative;
         height: 4rem;

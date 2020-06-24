@@ -3,6 +3,7 @@ import RBTheNavigation from './RBTheNavigation.vue'
 import RBReportCard from './RBReportCard.vue'
 import RBFilter from './RBFilter.vue'
 import RBBasePrimaryButton from './RBBasePrimaryButton.vue'
+import RBBaseSecondaryButton from './RBBaseSecondaryButton.vue'
 import RBTheModal from './RBTheModal.vue'
 
 export {
@@ -11,5 +12,6 @@ export {
     RBReportCard,
     RBFilter,
     RBBasePrimaryButton,
+    RBBaseSecondaryButton,
     RBTheModal
 }
