@@ -1,4 +1,4 @@
-# sampling
+# Sampling Web App
 
 ## Project setup
 ```
